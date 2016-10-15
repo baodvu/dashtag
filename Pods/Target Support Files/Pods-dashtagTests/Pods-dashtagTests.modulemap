@@ -1,0 +1,6 @@
+framework module Pods_dashtagTests {
+  umbrella header "Pods-dashtagTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
