@@ -29,6 +29,10 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if let _ = FIRAuth.auth()?.currentUser {
+            self.performSegueWithIdentifier("SegueToMain", sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {

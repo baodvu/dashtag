@@ -7,13 +7,23 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class MainScreenViewController: UIViewController {
 
+    @IBOutlet weak var welcomeText: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            let name = user.displayName ?? "dasher"
+            welcomeText.text = "Hello, \(name)!\nPlease choose your workout"
+        } else {
+            // No user is signed in.
+        }
     }
 
     override func didReceiveMemoryWarning() {
