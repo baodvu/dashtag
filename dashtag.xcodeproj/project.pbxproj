@@ -24,6 +24,8 @@
 		F3B46B2D1DB421D500A14734 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B46B2C1DB421D500A14734 /* RegisterViewController.swift */; };
 		F3B46B2E1DB421D500A14734 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B46B2C1DB421D500A14734 /* RegisterViewController.swift */; };
 		F3B46B2F1DB421D500A14734 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B46B2C1DB421D500A14734 /* RegisterViewController.swift */; };
+		F3C5E1CE1DBAA8E70008F7D8 /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5E1CD1DBAA8E70008F7D8 /* DifficultyViewController.swift */; };
+		F3C5E1D01DBAA9190008F7D8 /* RoutePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5E1CF1DBAA9190008F7D8 /* RoutePreviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		F3B46B261DB2D78800A14734 /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		F3B46B281DB2D83700A14734 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3B46B2C1DB421D500A14734 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F3C5E1CD1DBAA8E70008F7D8 /* DifficultyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
+		F3C5E1CF1DBAA9190008F7D8 /* RoutePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutePreviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,8 @@
 				F3B46B021DB2CF0E00A14734 /* Info.plist */,
 				F3B46B241DB2D54D00A14734 /* LoginViewController.swift */,
 				F3B46B2C1DB421D500A14734 /* RegisterViewController.swift */,
+				F3C5E1CD1DBAA8E70008F7D8 /* DifficultyViewController.swift */,
+				F3C5E1CF1DBAA9190008F7D8 /* RoutePreviewViewController.swift */,
 			);
 			path = dashtag;
 			sourceTree = "<group>";
@@ -250,7 +256,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = Dashtag;
 				TargetAttributes = {
 					F3B46AF21DB2CF0D00A14734 = {
@@ -463,6 +469,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3B46B251DB2D54D00A14734 /* LoginViewController.swift in Sources */,
+				F3C5E1CE1DBAA8E70008F7D8 /* DifficultyViewController.swift in Sources */,
+				F3C5E1D01DBAA9190008F7D8 /* RoutePreviewViewController.swift in Sources */,
 				F3B46B271DB2D78800A14734 /* MainScreenViewController.swift in Sources */,
 				F3B46AF71DB2CF0D00A14734 /* AppDelegate.swift in Sources */,
 				F3B46B2D1DB421D500A14734 /* RegisterViewController.swift in Sources */,
@@ -536,8 +544,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -582,8 +592,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -602,6 +614,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -616,6 +629,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.gatech.cc.dashtag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -628,6 +642,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.gatech.cc.dashtag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
