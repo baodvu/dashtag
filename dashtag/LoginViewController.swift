@@ -30,10 +30,6 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        if let _ = FIRAuth.auth()?.currentUser {
-            self.performSegueWithIdentifier("SegueToMain", sender: self)
-        }
-        
         //Looks for single or multiple taps.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
         
@@ -41,6 +37,15 @@ class LoginViewController: UIViewController {
         //tap.cancelsTouchesInView = false
         
         view.addGestureRecognizer(tap)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if let _ = FIRAuth.auth()?.currentUser {
+            self.performSegueWithIdentifier("SegueToMain", sender: self)
+        }
+        
+        // For testing purposes only: Log in without user credentials
+//        self.performSegueWithIdentifier("SegueToMain", sender: self)
     }
     
     //Calls this function when the tap is recognized.

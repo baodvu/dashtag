@@ -274,7 +274,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="lee-iZ-uCz"/>
                                         </constraints>
-                                        <state key="normal" title="GROUP">
+                                        <state key="normal" title="Group">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -292,7 +292,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="wEZ-8D-PKR"/>
                                         </constraints>
-                                        <state key="normal" title="INDIVIDUAL">
+                                        <state key="normal" title="Individual">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -321,7 +321,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGj-Lr-LRH">
                                 <string key="text">Hello!
 Please choose your workout</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.95686274510000002" green="0.59607843140000005" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -332,7 +332,7 @@ Please choose your workout</string>
                             <constraint firstItem="Y9E-mz-Fz9" firstAttribute="leading" secondItem="Jge-t0-Nwv" secondAttribute="leadingMargin" constant="-20" id="JkU-bp-hCc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Y9E-mz-Fz9" secondAttribute="trailing" constant="-20" id="h0a-tN-VTr"/>
                             <constraint firstItem="lGj-Lr-LRH" firstAttribute="centerX" secondItem="Jge-t0-Nwv" secondAttribute="centerX" id="sWI-yX-MVG"/>
-                            <constraint firstItem="lGj-Lr-LRH" firstAttribute="top" secondItem="boz-aa-MfR" secondAttribute="bottom" constant="40" id="u7u-Lr-zdl"/>
+                            <constraint firstItem="lGj-Lr-LRH" firstAttribute="top" secondItem="boz-aa-MfR" secondAttribute="bottom" constant="20" id="u7u-Lr-zdl"/>
                         </constraints>
                     </view>
                     <connections>
@@ -355,16 +355,22 @@ Please choose your workout</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bg2-pc-CMQ">
-                                <frame key="frameInset" minX="16" minY="72" width="69" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y1G-1f-CoE">
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="KKH-Cl-xfZ">
-                                <frame key="frameInset" minX="14" minY="115" width="347" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medium" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHU-C8-b4o">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5R-Jz-0cM">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="KKH-Cl-xfZ">
                                 <color key="minimumTrackTintColor" red="0.95686274510000002" green="0.59607843140000005" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="sliderTouchUp:" destination="xke-NP-4Bo" eventType="touchUpInside" id="i9L-WY-bGh"/>
@@ -375,7 +381,7 @@ Please choose your workout</string>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fRa-YS-Cjf"/>
                                 </constraints>
-                                <state key="normal" title="Next">
+                                <state key="normal" title="Generate Route">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -389,19 +395,49 @@ Please choose your workout</string>
                                     <segue destination="XQN-Vo-0cE" kind="show" id="RK3-87-fMZ"/>
                                 </connections>
                             </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="CO0-K8-F8D">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="6kr-3e-Jts"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="498856810.58342898">
+                                    <!--2016-10-22 19:20:10 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set up your route" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWN-bc-Bva">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.95686274510000002" green="0.59607843140000005" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="CO0-K8-F8D" secondAttribute="leading" id="1QW-YB-jPE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="j5R-Jz-0cM" secondAttribute="trailing" id="3sX-aU-aKe"/>
+                            <constraint firstItem="Y1G-1f-CoE" firstAttribute="top" secondItem="HWN-bc-Bva" secondAttribute="bottom" constant="20" id="BOm-DX-2EY"/>
+                            <constraint firstItem="eHU-C8-b4o" firstAttribute="centerX" secondItem="xOL-aE-zMM" secondAttribute="centerX" id="Bi0-Ey-yHn"/>
+                            <constraint firstItem="KKH-Cl-xfZ" firstAttribute="top" secondItem="eHU-C8-b4o" secondAttribute="bottom" constant="8" symbolic="YES" id="DVO-2W-szD"/>
                             <constraint firstItem="ugJ-nO-WNs" firstAttribute="top" secondItem="zRt-ZG-Ext" secondAttribute="bottom" constant="20" id="EL8-1s-1yY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KKH-Cl-xfZ" secondAttribute="trailing" id="H3G-XX-qRZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CO0-K8-F8D" secondAttribute="trailing" id="KXe-RT-puP"/>
+                            <constraint firstItem="j5R-Jz-0cM" firstAttribute="top" secondItem="eHU-C8-b4o" secondAttribute="top" id="MVI-y2-Zqt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zRt-ZG-Ext" secondAttribute="trailing" id="Pf8-zK-1bp"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Y1G-1f-CoE" secondAttribute="leading" id="Tuw-8T-omU"/>
+                            <constraint firstItem="eHU-C8-b4o" firstAttribute="top" secondItem="Y1G-1f-CoE" secondAttribute="top" id="ZHZ-wu-v8k"/>
                             <constraint firstAttribute="leadingMargin" secondItem="zRt-ZG-Ext" secondAttribute="leading" id="eZJ-Uy-aEj"/>
+                            <constraint firstItem="HWN-bc-Bva" firstAttribute="top" secondItem="Mia-Jc-Ldz" secondAttribute="bottom" constant="20" id="q4V-kC-dWt"/>
+                            <constraint firstItem="CO0-K8-F8D" firstAttribute="top" secondItem="KKH-Cl-xfZ" secondAttribute="bottom" constant="26" id="tjD-bx-Tii"/>
+                            <constraint firstItem="HWN-bc-Bva" firstAttribute="centerX" secondItem="xOL-aE-zMM" secondAttribute="centerX" id="vyV-VQ-jaQ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="KKH-Cl-xfZ" secondAttribute="leading" id="ztT-D1-Ou8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dbv-Fx-YJ3"/>
+                    <connections>
+                        <outlet property="difficultySlider" destination="KKH-Cl-xfZ" id="tpP-Pd-Ni8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TJY-5M-spR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2127" y="429"/>
+            <point key="canvasLocation" x="2125.5999999999999" y="428.63568215892059"/>
         </scene>
         <!--Route Preview View Controller-->
         <scene sceneID="Ebb-ZC-uaV">

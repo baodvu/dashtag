@@ -10,10 +10,14 @@ import UIKit
 
 class DifficultyViewController: UIViewController {
 
+    @IBOutlet weak var difficultySlider: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        // difficultySlider.setThumbImage(UIImage(named: "RunningMan"), forState: .Normal)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +38,7 @@ class DifficultyViewController: UIViewController {
 
     @IBAction func sliderTouchUp(sender: UISlider) {
         // [sender setValue:floorf([sender value] + 0.5) animated:YES];
-        sender.setValue(floorf(sender.value), animated: true)
+        sender.setValue(roundf(sender.value), animated: true)
     }
     
 }
