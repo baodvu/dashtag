@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11517.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -450,12 +451,28 @@ Please choose your workout</string>
                     <view key="view" contentMode="scaleToFill" id="Jgr-vH-DZs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZ5-qX-V2J" customClass="GMSMapView">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wZ5-qX-V2J" secondAttribute="height" multiplier="1:1" id="9UA-3S-qkO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="wZ5-qX-V2J" secondAttribute="trailing" constant="-16" id="Qmr-wn-RUj"/>
+                            <constraint firstItem="wZ5-qX-V2J" firstAttribute="top" secondItem="GaU-t3-pdz" secondAttribute="bottom" id="rpI-kl-cnF"/>
+                            <constraint firstItem="wZ5-qX-V2J" firstAttribute="leading" secondItem="Jgr-vH-DZs" secondAttribute="leadingMargin" constant="-16" id="wBW-Ma-HdX"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="wZ5-qX-V2J" id="ufX-yY-Wjo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="umt-sQ-Wup" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2983" y="429"/>
+            <point key="canvasLocation" x="2981.5999999999999" y="428.63568215892059"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

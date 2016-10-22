@@ -7,13 +7,24 @@
 //
 
 import UIKit
+import GoogleMaps
+import Firebase
 
 class RoutePreviewViewController: UIViewController {
 
+    @IBOutlet weak var mapView: GMSMapView!
+    var ref: FIRDatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        ref = FIRDatabase.database().reference()
+        
+        let camera = GMSCameraPosition.cameraWithLatitude(33.778351, longitude: -84.396695, zoom: 16.0)
+
+        mapView.camera = camera
+        mapView.myLocationEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
