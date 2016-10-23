@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "mapMarker_1 (3).png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "runSliderButton_1.png",
       "scale" : "2x"
     },
     {

@@ -10,9 +10,11 @@
 		502830CC369EC207820F3172 /* Pods_dashtagUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE15D266793EDD01D2236623 /* Pods_dashtagUITests.framework */; };
 		67E04DAFB4B35282246F0234 /* Pods_dashtagTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FF1FBC47505D7DB62E2724 /* Pods_dashtagTests.framework */; };
 		DCBB32E6199703E465CD4801 /* Pods_dashtag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9C0ABEA1AE959C0E20AF310 /* Pods_dashtag.framework */; };
+		F32548021DBC1CE3008E4818 /* MapTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32548011DBC1CE3008E4818 /* MapTasks.swift */; };
+		F32548061DBD5317008E4818 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32548051DBD5317008E4818 /* Assets.xcassets */; };
+		F32548081DBD5820008E4818 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32548071DBD5820008E4818 /* Workout.swift */; };
 		F3B46AF71DB2CF0D00A14734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B46AF61DB2CF0D00A14734 /* AppDelegate.swift */; };
 		F3B46AFC1DB2CF0D00A14734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B46AFA1DB2CF0D00A14734 /* Main.storyboard */; };
-		F3B46AFE1DB2CF0E00A14734 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3B46AFD1DB2CF0E00A14734 /* Assets.xcassets */; };
 		F3B46B011DB2CF0E00A14734 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B46AFF1DB2CF0E00A14734 /* LaunchScreen.storyboard */; };
 		F3B46B0C1DB2CF0E00A14734 /* dashtagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B46B0B1DB2CF0E00A14734 /* dashtagTests.swift */; };
 		F3B46B171DB2CF0E00A14734 /* dashtagUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B46B161DB2CF0E00A14734 /* dashtagUITests.swift */; };
@@ -26,6 +28,7 @@
 		F3B46B2F1DB421D500A14734 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B46B2C1DB421D500A14734 /* RegisterViewController.swift */; };
 		F3C5E1CE1DBAA8E70008F7D8 /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5E1CD1DBAA8E70008F7D8 /* DifficultyViewController.swift */; };
 		F3C5E1D01DBAA9190008F7D8 /* RoutePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5E1CF1DBAA9190008F7D8 /* RoutePreviewViewController.swift */; };
+		F3C5E1D31DBC05890008F7D8 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C5E1D21DBC05890008F7D8 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,10 +58,12 @@
 		D9C0ABEA1AE959C0E20AF310 /* Pods_dashtag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dashtag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE15D266793EDD01D2236623 /* Pods_dashtagUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dashtagUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4503697629E1476F4FE27B0 /* Pods-dashtag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dashtag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dashtag/Pods-dashtag.debug.xcconfig"; sourceTree = "<group>"; };
+		F32548011DBC1CE3008E4818 /* MapTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTasks.swift; sourceTree = "<group>"; };
+		F32548051DBD5317008E4818 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F32548071DBD5820008E4818 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		F3B46AF31DB2CF0D00A14734 /* dashtag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dashtag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3B46AF61DB2CF0D00A14734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3B46AFB1DB2CF0D00A14734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		F3B46AFD1DB2CF0E00A14734 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3B46B001DB2CF0E00A14734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3B46B021DB2CF0E00A14734 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3B46B071DB2CF0E00A14734 /* dashtagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dashtagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +78,7 @@
 		F3B46B2C1DB421D500A14734 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F3C5E1CD1DBAA8E70008F7D8 /* DifficultyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
 		F3C5E1CF1DBAA9190008F7D8 /* RoutePreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutePreviewViewController.swift; sourceTree = "<group>"; };
+		F3C5E1D21DBC05890008F7D8 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Model/Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,17 +157,18 @@
 		F3B46AF51DB2CF0D00A14734 /* dashtag */ = {
 			isa = PBXGroup;
 			children = (
+				F3C5E1D11DBC051A0008F7D8 /* Model */,
 				F3B46B281DB2D83700A14734 /* GoogleService-Info.plist */,
 				F3B46AF61DB2CF0D00A14734 /* AppDelegate.swift */,
 				F3B46AFA1DB2CF0D00A14734 /* Main.storyboard */,
 				F3B46B261DB2D78800A14734 /* MainScreenViewController.swift */,
-				F3B46AFD1DB2CF0E00A14734 /* Assets.xcassets */,
 				F3B46AFF1DB2CF0E00A14734 /* LaunchScreen.storyboard */,
 				F3B46B021DB2CF0E00A14734 /* Info.plist */,
 				F3B46B241DB2D54D00A14734 /* LoginViewController.swift */,
 				F3B46B2C1DB421D500A14734 /* RegisterViewController.swift */,
 				F3C5E1CD1DBAA8E70008F7D8 /* DifficultyViewController.swift */,
 				F3C5E1CF1DBAA9190008F7D8 /* RoutePreviewViewController.swift */,
+				F32548051DBD5317008E4818 /* Assets.xcassets */,
 			);
 			path = dashtag;
 			sourceTree = "<group>";
@@ -182,6 +189,16 @@
 				F3B46B181DB2CF0E00A14734 /* Info.plist */,
 			);
 			path = dashtagUITests;
+			sourceTree = "<group>";
+		};
+		F3C5E1D11DBC051A0008F7D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F3C5E1D21DBC05890008F7D8 /* Location.swift */,
+				F32548011DBC1CE3008E4818 /* MapTasks.swift */,
+				F32548071DBD5820008E4818 /* Workout.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,8 +319,8 @@
 			files = (
 				F3B46B011DB2CF0E00A14734 /* LaunchScreen.storyboard in Resources */,
 				F3B46B291DB2D83700A14734 /* GoogleService-Info.plist in Resources */,
-				F3B46AFE1DB2CF0E00A14734 /* Assets.xcassets in Resources */,
 				F3B46AFC1DB2CF0D00A14734 /* Main.storyboard in Resources */,
+				F32548061DBD5317008E4818 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +490,10 @@
 				F3C5E1D01DBAA9190008F7D8 /* RoutePreviewViewController.swift in Sources */,
 				F3B46B271DB2D78800A14734 /* MainScreenViewController.swift in Sources */,
 				F3B46AF71DB2CF0D00A14734 /* AppDelegate.swift in Sources */,
+				F32548081DBD5820008E4818 /* Workout.swift in Sources */,
+				F32548021DBC1CE3008E4818 /* MapTasks.swift in Sources */,
 				F3B46B2D1DB421D500A14734 /* RegisterViewController.swift in Sources */,
+				F3C5E1D31DBC05890008F7D8 /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
