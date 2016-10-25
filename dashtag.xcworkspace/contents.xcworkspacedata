@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:dashtag">
+   </FileRef>
+   <FileRef
       location = "group:dashtag.xcodeproj">
    </FileRef>
    <FileRef

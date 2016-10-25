@@ -13,6 +13,7 @@
 		F32548021DBC1CE3008E4818 /* MapTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32548011DBC1CE3008E4818 /* MapTasks.swift */; };
 		F32548061DBD5317008E4818 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F32548051DBD5317008E4818 /* Assets.xcassets */; };
 		F32548081DBD5820008E4818 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32548071DBD5820008E4818 /* Workout.swift */; };
+		F325480C1DBEBDA8008E4818 /* TimeSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F325480B1DBEBDA8008E4818 /* TimeSettingViewController.swift */; };
 		F3B46AF71DB2CF0D00A14734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B46AF61DB2CF0D00A14734 /* AppDelegate.swift */; };
 		F3B46AFC1DB2CF0D00A14734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B46AFA1DB2CF0D00A14734 /* Main.storyboard */; };
 		F3B46B011DB2CF0E00A14734 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3B46AFF1DB2CF0E00A14734 /* LaunchScreen.storyboard */; };
@@ -61,6 +62,7 @@
 		F32548011DBC1CE3008E4818 /* MapTasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTasks.swift; sourceTree = "<group>"; };
 		F32548051DBD5317008E4818 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F32548071DBD5820008E4818 /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		F325480B1DBEBDA8008E4818 /* TimeSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSettingViewController.swift; sourceTree = "<group>"; };
 		F3B46AF31DB2CF0D00A14734 /* dashtag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dashtag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3B46AF61DB2CF0D00A14734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3B46AFB1DB2CF0D00A14734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -164,11 +166,12 @@
 				F3B46B261DB2D78800A14734 /* MainScreenViewController.swift */,
 				F3B46AFF1DB2CF0E00A14734 /* LaunchScreen.storyboard */,
 				F3B46B021DB2CF0E00A14734 /* Info.plist */,
+				F3C5E1CD1DBAA8E70008F7D8 /* DifficultyViewController.swift */,
 				F3B46B241DB2D54D00A14734 /* LoginViewController.swift */,
 				F3B46B2C1DB421D500A14734 /* RegisterViewController.swift */,
-				F3C5E1CD1DBAA8E70008F7D8 /* DifficultyViewController.swift */,
 				F3C5E1CF1DBAA9190008F7D8 /* RoutePreviewViewController.swift */,
 				F32548051DBD5317008E4818 /* Assets.xcassets */,
+				F325480B1DBEBDA8008E4818 /* TimeSettingViewController.swift */,
 			);
 			path = dashtag;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 			files = (
 				F3B46B251DB2D54D00A14734 /* LoginViewController.swift in Sources */,
 				F3C5E1CE1DBAA8E70008F7D8 /* DifficultyViewController.swift in Sources */,
+				F325480C1DBEBDA8008E4818 /* TimeSettingViewController.swift in Sources */,
 				F3C5E1D01DBAA9190008F7D8 /* RoutePreviewViewController.swift in Sources */,
 				F3B46B271DB2D78800A14734 /* MainScreenViewController.swift in Sources */,
 				F3B46AF71DB2CF0D00A14734 /* AppDelegate.swift in Sources */,
@@ -594,6 +598,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -635,6 +640,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

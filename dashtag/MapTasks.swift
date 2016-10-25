@@ -33,7 +33,11 @@ class MapTasks {
     
     var totalDuration: String!
     
+    var legEnds = [CLLocationCoordinate2D]()
+    
     func getDirections(origin: String!, destination: String!, waypoints: Array<String>!, travelMode: AnyObject!, completionHandler: ((status: String, success: Bool) -> Void)) {
+        legEnds = []
+        
         if let originLocation = origin {
             if let destinationLocation = destination {
                 var directionsURLString = baseURLDirections + "origin=" + originLocation + "&destination=" + destinationLocation
@@ -106,6 +110,7 @@ class MapTasks {
         for leg in legs {
             totalDistanceInMeters += (leg["distance"] as! Dictionary<NSObject, AnyObject>)["value"] as! UInt
             totalDurationInSeconds += (leg["duration"] as! Dictionary<NSObject, AnyObject>)["value"] as! UInt
+            legEnds.append(CLLocationCoordinate2D(latitude: (leg["end_location"] as! Dictionary<NSObject, AnyObject>)["lat"] as! Double, longitude: (leg["end_location"] as! Dictionary<NSObject, AnyObject>)["lng"] as! Double))
         }
         
         let distanceInKilometers: Double = Double(totalDistanceInMeters / 1000)

@@ -11,9 +11,7 @@ import UIKit
 class DifficultyViewController: UIViewController {
 
     @IBOutlet weak var difficultySlider: UISlider!
-    @IBOutlet weak var timePicker: UIDatePicker!
     
-    @IBOutlet weak var timer: UIDatePicker!
     var difficultyArray = ["easy", "medium", "hard"]
     
     override func viewDidLoad() {
@@ -21,7 +19,6 @@ class DifficultyViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         difficultySlider.setThumbImage(UIImage(named: "RunningMan"), forState: .Normal)
-        timer.countDownDuration = 60*30
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,13 +43,12 @@ class DifficultyViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "toRoutePreview") {
+        if (segue.identifier == "toTimeSettings") {
             //get a reference to the destination view controller
-            let destinationVC = segue.destinationViewController as! RoutePreviewViewController
+            let destinationVC = segue.destinationViewController as! TimeSettingViewController
             
             //set properties on the destination view controller
             destinationVC.difficultyLevel = difficultyArray[Int(difficultySlider.value)]
-            destinationVC.workoutDuration = Int(timePicker.countDownDuration)
         }
     }
 }
