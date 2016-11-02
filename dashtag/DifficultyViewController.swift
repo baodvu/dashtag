@@ -18,7 +18,7 @@ class DifficultyViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        difficultySlider.setThumbImage(UIImage(named: "RunningMan"), forState: .Normal)
+//        difficultySlider.setThumbImage(UIImage(named: "RunningMan"), forState: .Normal)
     }
 
     override func didReceiveMemoryWarning() {

@@ -15,6 +15,12 @@ class RoutePreviewViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var numStopsLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var firstButton: UIButton!
+    @IBOutlet weak var secondButton: UIButton!
+    
+    var timer = NSTimer()
+    
+    var timerRunning = false
     
     var difficultyLevel = "default"
     var workoutDuration = 30
@@ -80,7 +86,6 @@ class RoutePreviewViewController: UIViewController, CLLocationManagerDelegate {
             return
         }
         loaded = true
-        //        currentLocation = CLLocationCoordinate2D(latitude: 33.777355, longitude: -84.398037)
         
         // Do any additional setup after loading the view.
         ref = FIRDatabase.database().reference()
@@ -147,7 +152,8 @@ class RoutePreviewViewController: UIViewController, CLLocationManagerDelegate {
             
             let w = GMSMarker(position: CLLocationCoordinate2DMake(location.latitude, location.longitude))
             w.title = location.title
-            w.snippet = "Task: \(randomWorkout.name) (\(randomWorkout.reps) reps, \(randomWorkout.sets) sets)" + "\n\nInfo: " + location.info
+            let task = (randomWorkout.reps == 0) ? " (\(randomWorkout.time) sec)" : " (\(randomWorkout.reps) reps, \(randomWorkout.sets) sets)"
+            w.snippet = "Task: \(randomWorkout.name)\(task)" + "\n\nInfo: " + location.info
             waypoints.append(marker2str(w))
             markers.append(w)
             
@@ -175,9 +181,7 @@ class RoutePreviewViewController: UIViewController, CLLocationManagerDelegate {
                         }
                         i = i + 1
                     }
-//                    for m in markers {
-//                        m.map = self.mapView
-//                    }
+                    
                     self.drawRoute()
                     self.displayRouteInfo(workoutTime)
                     self.numStops = wayPointCount
@@ -272,6 +276,23 @@ class RoutePreviewViewController: UIViewController, CLLocationManagerDelegate {
     func sortLocations(l1 : Location, l2 : Location) -> Bool {
         print(self.currentLocation)
         return (pow(l1.latitude - self.currentLocation.latitude, 2.0) + pow(l1.longitude - self.currentLocation.longitude, 2.0)) < (pow(l2.latitude - self.currentLocation.latitude, 2.0) + pow(l2.longitude - self.currentLocation.longitude, 2.0))
+    }
+    
+    @IBAction func start(sender: UIButton) {
+        if timerRunning {
+            timer.invalidate()
+        } else {
+            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(RoutePreviewViewController.updateTime), userInfo: nil, repeats: true)
+            firstButton.setTitle("Pause", forState: .Normal)
+            secondButton.setTitle("Stop", forState: .Normal)
+        }
+        timerRunning = !timerRunning
+    }
+    
+    func updateTime() {
+        if (self.time > 0) {
+            self.time = self.time - 1
+        }
     }
 }
 

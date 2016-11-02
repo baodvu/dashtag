@@ -42,4 +42,7 @@ class MainScreenViewController: UIViewController {
     }
     */
 
+    @IBAction func logout(sender: AnyObject) {
+        try! FIRAuth.auth()?.signOut()
+    }
 }

@@ -52,7 +52,6 @@ class MapTasks {
                 
                 directionsURLString += "&mode=walking"
                 
-//                directionsURLString = directionsURLString.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
                 print(directionsURLString)
                 
                 let directionsURL = NSURL(string: directionsURLString)
