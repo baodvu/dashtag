@@ -19,6 +19,7 @@ class RoutePreviewViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var secondButton: UIButton!
     
     var timer = NSTimer()
+    var countdownTimer = NSTimer()
     
     var timerRunning = false
     
@@ -60,10 +61,16 @@ class RoutePreviewViewController: UIViewController, CLLocationManagerDelegate {
     }
 
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var workoutView: UIView!
+    @IBOutlet weak var locationDescScrollView: UIScrollView!
     
     var ref: FIRDatabaseReference!
     var locations: [Location] = []
     var workouts: [Workout] = []
+    var markers: [GMSMarker] = []
+    var sortedMarkers: [GMSMarker] = []
+    var generatedLocations: [Location] = []
+    var generatedWorkouts: [Workout] = []
     var locationManager: CLLocationManager!
     var currentLocation: CLLocationCoordinate2D!
     
@@ -79,6 +86,18 @@ class RoutePreviewViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if !UIAccessibilityIsReduceTransparencyEnabled() {
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            //always fill the view
+            blurEffectView.frame = workoutView.bounds
+            blurEffectView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+            
+            workoutView.insertSubview(blurEffectView, atIndex: 0) //if you have more UIViews, use an insertSubview API to place it where needed
+        }
+        
+        workoutView.hidden = true
     }
     
     func setUp() {
@@ -89,6 +108,8 @@ class RoutePreviewViewController: UIViewController, CLLocationManagerDelegate {
         
         // Do any additional setup after loading the view.
         ref = FIRDatabase.database().reference()
+        
+        testIndex = 0
         
         let camera = GMSCameraPosition.cameraWithLatitude(33.778351, longitude: -80.396695, zoom: 16.0)
         mapView.camera = camera
@@ -142,7 +163,10 @@ class RoutePreviewViewController: UIViewController, CLLocationManagerDelegate {
         let origin = cord2str(self.currentLocation)
         var waypoints = [String]()
         
-        var markers = [GMSMarker(position: self.currentLocation)]
+        markers = [GMSMarker(position: self.currentLocation)]
+        sortedMarkers = []
+        
+        generatedWorkouts.removeAll()
         
         var index = 0
         var workoutTime: Int = 0
@@ -158,6 +182,7 @@ class RoutePreviewViewController: UIViewController, CLLocationManagerDelegate {
             markers.append(w)
             
             workoutTime += randomWorkout.time
+            generatedWorkouts.append(randomWorkout)
             
             index = index + 1
         }
@@ -172,10 +197,11 @@ class RoutePreviewViewController: UIViewController, CLLocationManagerDelegate {
                     var i = 0
                     print("legs : \(self.mapTasks.legEnds)")
                     for l in self.mapTasks.legEnds {
-                        for m in markers {
+                        for m in self.markers {
                             if (abs(l.latitude - m.position.latitude) < 0.001 && abs(l.longitude - m.position.longitude) < 0.001) {
                                 m.map = self.mapView
                                 m.icon = getLabelImage("\(i+1)")
+                                self.sortedMarkers.append(m)
                                 break
                             }
                         }
@@ -186,9 +212,10 @@ class RoutePreviewViewController: UIViewController, CLLocationManagerDelegate {
                     self.displayRouteInfo(workoutTime)
                     self.numStops = wayPointCount
                     
+                    
                     // Move Google Map window to fit the markers
                     var bounds = GMSCoordinateBounds();
-                    for m in markers {
+                    for m in self.markers {
                         bounds = bounds.includingCoordinate(m.position);
                     }
                     
@@ -274,25 +301,97 @@ class RoutePreviewViewController: UIViewController, CLLocationManagerDelegate {
     
     
     func sortLocations(l1 : Location, l2 : Location) -> Bool {
-        print(self.currentLocation)
+//        print(self.currentLocation)
         return (pow(l1.latitude - self.currentLocation.latitude, 2.0) + pow(l1.longitude - self.currentLocation.longitude, 2.0)) < (pow(l2.latitude - self.currentLocation.latitude, 2.0) + pow(l2.longitude - self.currentLocation.longitude, 2.0))
     }
     
     @IBAction func start(sender: UIButton) {
         if timerRunning {
+            firstButton.setTitle("Resume", forState: .Normal)
             timer.invalidate()
+            countdownTimer.invalidate()
         } else {
-            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(RoutePreviewViewController.updateTime), userInfo: nil, repeats: true)
-            firstButton.setTitle("Pause", forState: .Normal)
-            secondButton.setTitle("Stop", forState: .Normal)
+            startRunningCountdown = 3
+            countdownTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(RoutePreviewViewController.startRunning), userInfo: nil, repeats: true)
         }
         timerRunning = !timerRunning
     }
+    
+    var startRunningCountdown = 0
+    
+    func startRunning() {
+        if (startRunningCountdown == 0) {
+            countdownTimer.invalidate()
+            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(RoutePreviewViewController.updateTime), userInfo: nil, repeats: true)
+            firstButton.setTitle("Pause", forState: .Normal)
+            secondButton.setTitle("Stop", forState: .Normal)
+        } else {
+            firstButton.setTitle("Starting in \(startRunningCountdown) seconds...", forState: .Normal)
+            startRunningCountdown = startRunningCountdown - 1
+        }
+    }
+    
+    var workoutTimeCount = 0
     
     func updateTime() {
         if (self.time > 0) {
             self.time = self.time - 1
         }
+        if (self.workoutTimeCount > 0) {
+            self.workoutTimeCount = self.workoutTimeCount - 1
+            workoutTimer.text = intToTimeString(self.workoutTimeCount)
+            if (self.workoutTimeCount == 0) {
+                self.workoutView.hidden = true
+            }
+        }
+    }
+    
+    @IBOutlet weak var workoutTitle: UILabel!
+    @IBOutlet weak var workoutReps: UILabel!
+    @IBOutlet weak var workoutSets: UILabel!
+    @IBOutlet weak var locationName: UILabel!
+    @IBOutlet weak var locationDescription: UILabel!
+    @IBOutlet weak var workoutTimer: UILabel!
+    
+    func intToTimeString(timeInSecs: Int) -> String {
+        return "\(timeInSecs / 60):\(String(format: "%02d", timeInSecs % 60))"
+    }
+    
+    func displayWorkout(title: String, reps: Int, sets: Int, locName: String, locDesc: String, timeLimit: Int) -> Void {
+        workoutTitle.text = title
+        workoutReps.text = "\(reps) reps"
+        workoutSets.text = "\(sets) sets"
+        locationName.text = locName
+        locationDescription.text = locDesc
+        self.workoutTimeCount = timeLimit
+        workoutTimer.text = intToTimeString(self.workoutTimeCount)
+        locationDescScrollView.contentOffset = CGPoint(x: 0, y: 0)
+        
+    }
+    
+    @IBAction func nextStop(sender: AnyObject) {
+        self.fakeMove()
+    }
+    
+    var testIndex = 0
+    
+    func fakeMove() {
+        if (testIndex >= self.sortedMarkers.count) {
+            self.performSegueWithIdentifier("ToResults", sender: self)
+            return
+        }
+        currentLocation = CLLocationCoordinate2D(latitude: self.sortedMarkers[testIndex].position.latitude, longitude: self.sortedMarkers[testIndex].position.longitude)
+        var nearestLoc = locations[0]
+        for l in locations {
+            if (pow(l.latitude - currentLocation.latitude, 2.0) + pow(l.longitude - currentLocation.longitude, 2.0) < pow(nearestLoc.latitude - currentLocation.latitude, 2.0) + pow(nearestLoc.longitude - currentLocation.longitude, 2.0)) {
+                nearestLoc = l
+            }
+        }
+        let wo = generatedWorkouts[testIndex]
+        displayWorkout(wo.name, reps: wo.reps, sets: wo.sets, locName: nearestLoc.title, locDesc: nearestLoc.info, timeLimit: wo.time)
+        workoutView.hidden = false
+        
+        testIndex = testIndex + 1
     }
 }
 
